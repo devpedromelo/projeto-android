@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+@font-face {
+    font-family: 'Android';
+    src: url('fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+:root{ /*Significa que tudo que definirmos aqui vai servir pro documento inteiro*/
+    --cor0: #84E1AD;  /*Aqui podemos definir variáveis para o CSS*/
+    --cor01:#3AD07D;
+    --cor02:#288C54;
+    --cor03:#1C623A;
+    --cor04:#288c5328;
+    
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-android: 'Android', cursive;
+}
+
+*{ /*Confoguração para todos os elementos em HTML*/
+    margin: 0px;
+    padding: 0px; /*isso ajuda a nao ter margens e paddings de acordo com os paragrafos e h1, isso que tava impedindo de a margem se manter la em cima colada*/
+}
+
+body{
+    background-color:var(--cor0);
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+header{
+    background-image: linear-gradient(to bottom, var(--cor01), var(--cor02), var(--cor03));
+    min-height: 150px;
+    padding-top: 40px;
+}
+
+header > h1{
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 15px;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.253);
+    text-align: center;
+}
+
+header > p{
+    font-family: var(--fonte-padrao);
+    text-align: center;
+    font-size: 1.2em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.253);
+    color: white;
+    max-width: 500px;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+nav{
+    background-color: var(--cor03);
+    padding: 10px;
+}
+
+nav > a{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    color: var(--cor0);
+    padding: 10px;
+}
+
+nav > a:hover{
+    background-color: var(--cor0);
+    color: var(--cor02);
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 10px;
+    transition-duration: .5s;
+}
+
+main{
+    background-color: white;
+    min-width: 320px;
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.396);
+    border-bottom-left-radius: 5px ;
+    border-bottom-right-radius: 5px;
+}
+
+main p{  /*Quando colocamos o sinal ">" significa que o que estamos marcando é o p dentro especificamente de um main, mas quando não colocamos significa que o p esta dentro de um main não importa o seu nivel[article...section...]*/
+    text-align: justify;
+    margin: 15px 0px;
+    padding: 8px;
+    text-indent: 40px;
+    font-weight: 100;
+    font-size: 1.1em;
+    line-height: 1.5em;/*Configura a altura de uma linha para outra*/
+}
+
+main h1{
+    margin: 8px;
+    padding: 8px;
+    font-family: var(--fonte-android);
+    color: var(--cor03);
+}
+
+main h2{
+    margin: 8px;
+    padding: 8px;
+    font-family: var(--fonte-android);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor0), transparent);
+    color: var(--cor03);
+}
+
+main strong{
+    color: var(--cor03);
+}
+
+main a{
+    font-weight: 600;
+    color: var(--cor0);
+    background-color: var(--cor03);
+    padding: 2px 6px;
+}
+
+main a:hover{
+    background-color: var(--cor0);
+    color: var(--cor02);
+}
+
+main a::after{
+    content: '🧷';
+}
+
+ p{
+    font-family: var(--fonte-padrao);
+    text-align: justify;
+ }
+
+img{
+    width: 100%;
+}
+
+img.pequena{
+    display: block; 
+    margin: auto;
+    max-width: 350px;
+    /*uma foto por padrão não é um bloco, ela é uma inline, entao pra centralizar com uma margem auto, devemos declarar um display block para q ela se torne um bloco*/
+}
+
+div.video{
+    background-color: var(--cor03);
+    margin: 0px -20px 30px -20px;
+    padding: 10px;
+    padding-bottom: 58.6%;
+    position: relative;
+}
+
+div.video > iframe{ /*Para mexer no iframe temos que torná-lo em absolute, configurar o top e left, e a width e o height*/
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside{
+    background-color: #84e1aca9;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.099);
+}
+
+aside h3{
+    font-family: var(--fonte-padrao);
+    background-color: var(--cor02);
+    color: rgb(255, 255, 255);
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+}
+
+aside p{
+    margin:0px;
+    padding: 15px;
+    text-align: justify;
+}
+
+ul{
+    list-style-type: '\2714\00A0\00A0';    /*Serve para colocar um emji no lugar das bolinhas da lista, código pego no emojipedia, tem que colocar barra invertida no inicio para funcionar, o "00A0" serve para dar um espaço como se fosse um padding. Mas não é compatível com todo navegador. */
+
+    list-style-position: inside; /*Serve para a lista ficar dentro e não do lado de fora*/
+}
+
+li{
+    height: 25%;
+    width: 50%;
+}
+
+article > p{
+        margin: 15px 0px;
+        padding: 8px;
+        text-align: justify;
+}
+
+footer{
+    background-color: var(--cor03);
+    color: white;
+}
+
+footer p{
+    font-family: var(--fonte-padrao);
+    text-align: center;
+    padding: 8px;
+    font-size: 1em;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: var(--cor0);
+    text-decoration: underline;
+}
